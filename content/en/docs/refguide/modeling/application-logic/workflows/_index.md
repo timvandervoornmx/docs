@@ -61,12 +61,42 @@ The **WorkflowInstance** entity that was generated when the workflow was created
 
 ### 3.4 Adding Elements to a Workflow 
 
-To add an element to a workflow, do the following:
+There are several ways to add an element to a workflow. It can be done using:
+
+* The **Toolbox**
+* The **Working Area**
+* A right-click on an element
+
+#### 3.4.1 Adding elements using the Toolbox
 
 1. Open the **Toolbox**.
 2. Select an element you would like to add and drag this element into the working area.
 
-The selected element is added.
+#### 3.4.2 Adding elements using the Working Area
+
+1. Move the mouse cursor to a path on the working area. A plus icon will indicate that a new element can be added.
+2. Left-click the plus icon and select an element from the popup menu.
+
+#### 3.4.3 Adding elements by right-clicking an element
+
+1. Right-click an element and go to **Insert after** menu item.
+2. Select an element from the menu.
+
+When adding elements, note the following:
+* It is not possible to add an **End** or **Jump** activity **after** an element as this will result in the next activity becoming unreachable.
+* It is not possible to add an **End** or **Jump** activity before an **End** or **Jump** activity as this will result in the next activity becoming unreachable.
+* **End** activities cannot be placed in paths of a **Parallel Split** activity. This also holds for placing an **End** activity on, for example, an **Outcome** of a **User Task** if this **User Task** is placed on a path of a **Parallel Split** activity. 
+
+### 3.5 Moving Elements on a Workflow
+There are several elements that can be moved on around on the working area:
+* Activities
+* Outgoing paths of an activity
+
+### 3.5.1 Moving Activities
+To move an activity on a workflow, drag and drop an element to another path on the working area. This will move the whole structure of the dragged element, meaning that the element and its underlying elements will be moved.
+
+### 3.5.2 Moving outgoing paths
+To move an outgoing path of an activity, drag and drop a path to another path of the same activity. This will swap the dragged path and its content with the target path. Note that you can only swap paths that come from the same activity.
 
 ### 3.5 Cutting/Coping/Pasting Elements in a Workflow
 
@@ -95,7 +125,7 @@ The following elements cannot be cut, copied or pasted in the workflow editor:
 * End activity (the final **End activity** which is at the end of the workflow)
 * Outcomes (meaning outcomes of different outgoing flows from an activity that can have several flows, for example, a Decision)
 
-### 3.6 Viewing Element Properties 
+### 3.7 Viewing Element Properties 
 
 To view properties of an element, do one of the following:
 
@@ -103,11 +133,11 @@ To view properties of an element, do one of the following:
 2. Right-click an element and select **Properties** from the list of options that opens.
 3. Double-click an element.
 
-### 3.7 Triggering a Workflow
+### 3.8 Triggering a Workflow
 
 You can trigger a workflow [from a page](#trigger-page) or [via a microflow](#trigger-microflow). 
 
-#### 3.7.1 Triggering a Workflow from a Page {#trigger-page}
+#### 3.8.1 Triggering a Workflow from a Page {#trigger-page}
 
 To start the workflow, you can add a widget with a specific on-click event on a page. For more information on on-click events, see [On Click Event and Events Section](/refguide/on-click-event/).
 
@@ -122,7 +152,7 @@ Do the following:
 
 You have configured the button to trigger the workflow.
 
-#### 3.7.2 Triggering a Workflow via a Microflow {#trigger-microflow}
+#### 3.8.2 Triggering a Workflow via a Microflow {#trigger-microflow}
 
 To trigger a workflow via a microflow, you can add a **Call workflow** activity to the microflow. For more information on this activity, see [Call Workflow](/refguide/workflow-call/).  
 
@@ -141,7 +171,7 @@ Do the following:
 
 Now when you run this microflow, it will trigger the selected workflow. 
 
-### 3.8 Exporting a Workflow to an Image
+### 3.9 Exporting a Workflow to an Image
 
 There are two ways to export a workflow to an image: 
 
